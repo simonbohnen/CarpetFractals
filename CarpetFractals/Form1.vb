@@ -6,6 +6,11 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim i As Integer = InputBox("Which matrix would you like to edit?", "Edit Matrix")
 
+        If i < 0 Or i > 49 Or matrices(i) Is Nothing Then
+            MessageBox.Show("Index is out of range!")
+            Return
+        End If
+
         EditMatrix.matInp.Enabled = True
         EditMatrix.matInp.Text = matrices(i).matInp
         EditMatrix.matInp.Enabled = False
